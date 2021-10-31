@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                               Container(
-                                height: 100,
+                                height: 70,
                                 width: 150,
                                 decoration: BoxDecoration(
                                   image: const DecorationImage(

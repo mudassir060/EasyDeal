@@ -87,24 +87,24 @@ late String userName ="";
                   }
                   return GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Showfullnews(
-                            img: "${snapshot.data[index]['urlToImage']}",
-                            titel: _title(snapshot.data[index]),
-                            description: _description(snapshot.data[index]),
-                            time: _time(snapshot.data[index]),
-                            content: _content(snapshot.data[index]),
-                            id: _id(snapshot.data[index]),
-                            name: _name(snapshot.data[index]),
-                            url: _url(snapshot.data[index]),
-                            author: _author(snapshot.data[index]),
-                            userEmail: userEmail,
-                            userName: userName,
-                          ),
-                         ),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     // builder: (context) => Showfullnews(
+                      //     //   img: "${snapshot.data[index]['urlToImage']}",
+                      //     //   titel: _title(snapshot.data[index]),
+                      //     //   description: _description(snapshot.data[index]),
+                      //     //   time: _time(snapshot.data[index]),
+                      //     //   content: _content(snapshot.data[index]),
+                      //     //   id: _id(snapshot.data[index]),
+                      //     //   name: _name(snapshot.data[index]),
+                      //     //   url: _url(snapshot.data[index]),
+                      //     //   author: _author(snapshot.data[index]),
+                      //     //   userEmail: userEmail,
+                      //     //   userName: userName,
+                      //     // ),
+                      //    ),
+                      // );
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

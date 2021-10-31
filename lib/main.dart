@@ -1,3 +1,4 @@
+import 'package:easydeals/Page/HomeScreen/Electronics.dart';
 import 'package:easydeals/Page/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: SplashScreen(),
+      // home: SplashScreen(),
+      home: Electronics(),
     );
   }
 }

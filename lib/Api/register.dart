@@ -1,9 +1,13 @@
 // ignore_for_file: unnecessary_const
 
+import 'dart:io';
+
 import 'package:easydeals/Api/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:image_picker/image_picker.dart';
 
 class Registration extends StatefulWidget {
   const Registration({Key? key}) : super(key: key);
@@ -13,16 +17,46 @@ class Registration extends StatefulWidget {
 }
 
 class _RegistrationState extends State<Registration> {
-    final TextEditingController usernamecontroller = TextEditingController();
-    final TextEditingController useremailcontroller = TextEditingController();
-    final TextEditingController phonenocontroller = TextEditingController();
-    final TextEditingController biocontroller = TextEditingController();
-    final TextEditingController otpcontroller = TextEditingController();
-    final TextEditingController userpasswordcontroller =
-        TextEditingController();
-    String UID = '';
+  final TextEditingController usernamecontroller = TextEditingController();
+  final TextEditingController useremailcontroller = TextEditingController();
+  final TextEditingController phonenocontroller = TextEditingController();
+  final TextEditingController biocontroller = TextEditingController();
+  final TextEditingController otpcontroller = TextEditingController();
+  final TextEditingController userpasswordcontroller = TextEditingController();
+  String UID = '';
+  bool isCheck = false;
+  var selectedDate;
+  var selectedTime;
+  File? image;
   var UserProfile =
       "https://media.istockphoto.com/vectors/profile-placeholder-image-gray-silhouette-no-photo-vector-id1016744034?b=1&k=6&m=1016744034&s=612x612&w=0&h=dbicqM9p31ex5Lm-FpsdOjHkPZM_6Lmkb02qJO9SY5E=";
+  Future pickImage() async {
+    try {
+      final ImagePicker _picker = ImagePicker();
+      // Pick an image
+      // final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+      // Capture a photo
+      final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+      if (image == null) return;
+
+      final imageName = File(image.path);
+
+      setState(() => this.image = imageName);
+    } on PlatformException catch (error) {
+      print("Failed to pick image: $error");
+    }
+  }
+
+  Future uploadImage() async {
+    if (image == null) return print("Please Upload Any Image");
+
+    final imageName = File(image!.path);
+
+    final destination = 'files/$imageName';
+
+    // FirebaseApi.uploadFile(destination, image!);
+  }
+
   @override
   Widget build(BuildContext context) {
     void register() async {
@@ -44,15 +78,16 @@ class _RegistrationState extends State<Registration> {
           print(
               "===================Get data form mongodb =============================");
           print(json.decode(result.body));
-                  Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Login(),
-          ),
-        );
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Login(),
+            ),
+          );
           // print(json.decode(result.body[0]));
           return json.decode(result.body);
         }
+
         fetchUsers();
       } catch (e) {
         print("Error ==============>$e");
@@ -102,7 +137,7 @@ class _RegistrationState extends State<Registration> {
                 children: [
                   const SizedBox(height: 20),
                   Container(
-                    decoration:  BoxDecoration(
+                    decoration: BoxDecoration(
                         color: Colors.black12,
                         borderRadius: const BorderRadius.only(
                           topLeft: const Radius.circular(40.0),
@@ -138,6 +173,22 @@ class _RegistrationState extends State<Registration> {
                                   shape: BoxShape.rectangle,
                                 ),
                               ),
+                              SizedBox(height: 20),
+                              GestureDetector(
+                                onTap: () {
+                                  pickImage();
+                                },
+                                child: Container(
+                                  height: 100,
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: NetworkImage("${UserProfile}"),
+                                        fit: BoxFit.cover),
+                                    shape: BoxShape.circle,
+                                  ),
+                                ),
+                              ),
 
                               const SizedBox(height: 20),
                               TextField(
@@ -157,7 +208,7 @@ class _RegistrationState extends State<Registration> {
                                   labelText: "Email",
                                 ),
                               ),
-                              
+
                               SizedBox(height: 15),
                               TextField(
                                 controller: phonenocontroller,
@@ -166,7 +217,7 @@ class _RegistrationState extends State<Registration> {
                                     hintText: "Phone Number",
                                     labelText: "Phone Number"),
                               ),
-                             const SizedBox(height: 15),
+                              const SizedBox(height: 15),
                               TextField(
                                 controller: userpasswordcontroller,
                                 decoration: const InputDecoration(
@@ -187,7 +238,7 @@ class _RegistrationState extends State<Registration> {
                                     hintText: "About",
                                     labelText: "About"),
                               ),
-                             const SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               FlatButton(
                                 onPressed: register,
                                 child: const Text(
