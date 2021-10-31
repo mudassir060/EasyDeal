@@ -75,7 +75,7 @@ class _itemState extends State<item> {
               child: Text(
                 widget.Titel,
                 overflow: TextOverflow.ellipsis,
-                maxLines: 3,
+                maxLines: 2,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               ),
             ),

@@ -39,70 +39,68 @@ class _CarsState extends State<Cars> {
         childAspectRatio: (1 / 1.2),
         children: [
           item(
-              Titel: "Casio laser Projector XJV2",
-              Price: "185,000",
-              Rating: 3,
+              Titel: "Toyota corolla altis grande 2020 first owner excellent condition",
+              Price: "3,650,000",
+              Rating: 5,
               Description:
-                  """4K 3000 Lumens Hybrid Laser LED Lamp Free Projector having 24/7 operation. 
-best for indoor advertisement 
-indoor Brands Advertising
-best for Home Cinemas
-best for Presentations
-best for outlet display 
-
-Warranty 01 year
-No need to replace lamp again n again
-Just buy and enjoy laser Projection
-Quick on/off
-
-Call us
-Smart One Technologies
-Pakistan
-Suite 14, 6th floor, Al Hafeez Shopping Mall, Main Boulevard Gulberg III, Lahore
-O321 4O8 6763""",
+                  """Toyota Corolla Altis grande 2020
+First owner demand 3650 
+Excellent condition (View phone number)
+Fully loaded top of the line car 
+22000km driven
+Tv navigation system back camera alloy rims leather seats sunroof automatic transmission just like brand new car through out maintained from dealership""",
               Img:
-                  "https://images.olx.com.pk/thumbnails/102895761-400x300.webp",
+                  "https://images.olx.com.pk/thumbnails/198884218-400x300.webp",
               Discount: "1034",
-              author: "SmartOne Technologies",
+              author: "Olx User",
               userName: userName,
               userEmail:userEmail),
           item(
               Titel:
-                  "Combo deal 4gb/64gb Tanix Tx6s Android Tv Box With Keyboard/Mouse",
-              Price: "5,499",
-              Rating: 2,
+                  "Toyota Prado TX Limited 2.7 2005",
+              Price: "5,700,000",
+              Rating: 4,
               Description:
-                  """Most Awaited Octa Core DDR 4 Tv Box With Android 10 Sab Se Behter Or Powerful Box Now Available For Sale , Octa Core with Warranty
-Eid Offer Device + Keyboard/Mouse
-Very Elegant n Strong Device
-Free Movies/Series, (Netflix,Amazon,Zee5,Pak,Asian,English etc)""",
+                  """Total Genuine Car, very nicely maintained. 
+Model 2005
+Registered 2008
+Car can be seen in Peshawar University Campus. 
+Peshawar Registered, without sunroof.""",
               Img:
                   "https://images.olx.com.pk/thumbnails/172238453-400x300.webp",
-              Discount: "1404",
-              author: "Mudassir",
+              Discount: "5,900,000",
+              author: "Muhammad Hanif",
               userName: userName,
               userEmail:userEmail),
           item(
               Titel: "Electrical Goods, Electric Equipment",
-              Price: "400",
+              Price: "750,000",
               Rating: 5,
               Description:
-                  """Panasonic 1-chip DLP projectors are brighter and better than ever with a compilation of numerous Panasonic proprietary technologies. The wide-aspect PT-D6000US with a brightness of 6500 lumens produces vivid colorful images with the aid of the newly engineered RGB Booster. The Dual-Lamp System makes sure that presentations aren't interrupted even if a lamp suddenly burns out. This is joined by the Auto Cleaning Filter, which makes filter cleaning unnecessary for approximately 10,000 hours, for high reliability. It offers easy and flexible system configuration.""",
+                  """Toyota land cruiser bj40 
+Karachi sindh number 
+file bye hand 
+2l diesel engine 2400cc 
+location GT road Taru jabba""",
               Img:
-                  "https://images.olx.com.pk/thumbnails/179644938-400x300.webp",
-              Discount: "160,000",
-              author: "Projector point",
+                  "https://images.olx.com.pk/thumbnails/199721534-400x300.webp",
+              Discount: "750,000",
+              author: "Malik",
               userName: userName,
               userEmail:userEmail),
           item(
-              Titel: "Electrical Goods, Electric Equipment",
-              Price: "150,000",
+              Titel: "TOYOTA COROLLA GLI MANUAL EXCELLENT CONDITION",
+              Price: "2,165,000",
               Rating: 3,
-              Description: "Description",
+              Description: """PRICE IS FINAL NO BARGAINING!! 
+No work required
+Good condition
+Tax up to date
+Complete file""",
               Img:
-                  "https://3.imimg.com/data3/AB/YM/MY-2785260/all-electrical-goods-500x500.jpg",
-              Discount: "444",
-              author: "Mudassir",
+                  "https://images.olx.com.pk/thumbnails/177798131-400x300.webp",
+              Discount: "2,195,000",
+              author: "Rameez",
               userName: userName,
               userEmail:userEmail),
         ],
