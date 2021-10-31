@@ -316,10 +316,10 @@ class _HomePageState extends State<HomePage> {
                                       : null),
                               body: _selectedIndex == 0
                                   ? TabBarView(children: [
-                                      Electronics(),
-                                      Cars(),
-                                      Mobile(),
-                                      Clothes(),
+                                      Electronics(UserData: widget.UserData),
+                                      Cars(UserData: widget.UserData),
+                                      Mobile(UserData: widget.UserData),
+                                      Clothes(UserData: widget.UserData),
                                     ])
                                   : Page[_selectedIndex],
                             ),

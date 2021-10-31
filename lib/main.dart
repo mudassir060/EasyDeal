@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      // home: SplashScreen(),
-      home: Electronics(),
+      home: SplashScreen(),
+      // home: Electronics(),
     );
   }
 }

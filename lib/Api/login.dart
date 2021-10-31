@@ -1,7 +1,6 @@
 import 'package:easydeals/Api/register.dart';
 import 'package:easydeals/widget/Navigation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -19,8 +18,8 @@ class _LoginState extends State<Login> {
   String UID = '';
   String UserProfile = '';
 
-  final TextEditingController useremailcontroller = TextEditingController();
-  final TextEditingController userpasswordcontroller = TextEditingController();
+  final TextEditingController useremailcontroller = TextEditingController(text: "abc@gmail.com");
+  final TextEditingController userpasswordcontroller = TextEditingController(text: "090078601");
 
   void register() async {
     Map? UserData = {};
@@ -77,6 +76,7 @@ class _LoginState extends State<Login> {
           return alert;
         },
       );
+  
     }
   }
 
@@ -209,12 +209,12 @@ class _LoginState extends State<Login> {
                                   // style: TextStyle(fontSize: 10.0),
                                 ),
                                 onPressed: () {
-                                  var UserDate;
+                                  var UserData;
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          HomePage(UserData: UserDate),
+                                          HomePage(UserData: UserData),
                                     ),
                                   );
                                 },

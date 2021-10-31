@@ -42,15 +42,17 @@ class _itemState extends State<item> {
           context,
           MaterialPageRoute(
               builder: (context) => Showfullnews(
-                  img: widget.Img,
-                  titel: widget.Titel,
-                  description: widget.Description,
-                  time: "20/12/2021",
-                  author: widget.author,
-                  Price: widget.Price,
-                  Discount: widget.Discount,
-                  userName: widget.userName,
-                  userEmail: widget.userEmail)),
+                    img: widget.Img,
+                    titel: widget.Titel,
+                    description: widget.Description,
+                    time: "20/12/2021",
+                    author: widget.author,
+                    Price: widget.Price,
+                    Discount: widget.Discount,
+                    userName: widget.userName,
+                    userEmail: widget.userEmail,
+                    Rating: widget.Rating.toString(),
+                  )),
         );
       },
       child: Padding(
@@ -63,7 +65,7 @@ class _itemState extends State<item> {
               width: vwidth / 2.2,
               height: vwidth / 3,
               decoration: BoxDecoration(
-                 borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
                     image: NetworkImage(widget.Img), fit: BoxFit.cover),
               ),
@@ -80,13 +82,14 @@ class _itemState extends State<item> {
             Text.rich(
               TextSpan(
                 text: "Rs. ${widget.Price}  ",
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.red),
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.red),
                 children: <TextSpan>[
                   new TextSpan(
                     text: "Rs. ${widget.Discount}",
                     style: new TextStyle(
-                      color: Colors.grey,fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
                       decoration: TextDecoration.lineThrough,
                     ),
                   ),

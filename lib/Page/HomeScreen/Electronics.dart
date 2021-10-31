@@ -8,16 +8,25 @@ import 'package:easydeals/widget/item.dart';
 import 'package:flutter/material.dart';
 
 class Electronics extends StatefulWidget {
-  const Electronics({Key? key}) : super(key: key);
+  final Map UserData;
+  const Electronics({Key? key, required this.UserData}) : super(key: key);
 
   @override
   _ElectronicsState createState() => _ElectronicsState();
 }
 
+String userName = "null";
+String userEmail = "null";
+
 class _ElectronicsState extends State<Electronics> {
   @override
   Widget build(BuildContext context) {
     var vwidth = MediaQuery.of(context).size.width;
+    if (widget.UserData != null) {
+      print("=========================jjjjjj==============dg===========>${userEmail}");
+      userEmail = widget.UserData['email'];
+      userName = widget.UserData['Name'];
+    }
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'EasyDeal',
@@ -28,7 +37,7 @@ class _ElectronicsState extends State<Electronics> {
           body: GridView.count(
         crossAxisCount: 2,
         childAspectRatio: (1 / 1.2),
-        children: const [
+        children: [
           item(
               Titel: "Casio laser Projector XJV2",
               Price: "185,000",
@@ -55,8 +64,8 @@ O321 4O8 6763""",
                   "https://images.olx.com.pk/thumbnails/102895761-400x300.webp",
               Discount: "1034",
               author: "SmartOne Technologies",
-              userName: "Mudassir Mukhtar",
-              userEmail: "mudassirmukhtar4@gmail.com"),
+              userName: userName,
+              userEmail:userEmail),
           item(
               Titel:
                   "Combo deal 4gb/64gb Tanix Tx6s Android Tv Box With Keyboard/Mouse",
@@ -71,8 +80,8 @@ Free Movies/Series, (Netflix,Amazon,Zee5,Pak,Asian,English etc)""",
                   "https://images.olx.com.pk/thumbnails/172238453-400x300.webp",
               Discount: "1404",
               author: "Mudassir",
-              userName: "Mudassir Mukhtar",
-              userEmail: "userEmail"),
+              userName: userName,
+              userEmail:userEmail),
           item(
               Titel: "Electrical Goods, Electric Equipment",
               Price: "400",
@@ -83,8 +92,8 @@ Free Movies/Series, (Netflix,Amazon,Zee5,Pak,Asian,English etc)""",
                   "https://images.olx.com.pk/thumbnails/179644938-400x300.webp",
               Discount: "160,000",
               author: "Projector point",
-              userName: "Mudassir Mukhtar",
-              userEmail: "userEmail"),
+              userName: userName,
+              userEmail:userEmail),
           item(
               Titel: "Electrical Goods, Electric Equipment",
               Price: "150,000",
@@ -94,8 +103,8 @@ Free Movies/Series, (Netflix,Amazon,Zee5,Pak,Asian,English etc)""",
                   "https://3.imimg.com/data3/AB/YM/MY-2785260/all-electrical-goods-500x500.jpg",
               Discount: "444",
               author: "Mudassir",
-              userName: "Mudassir Mukhtar",
-              userEmail: "userEmail"),
+              userName: userName,
+              userEmail:userEmail),
         ],
       )),
     );
