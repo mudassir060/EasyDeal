@@ -39,70 +39,66 @@ class _ClothesState extends State<Clothes> {
         childAspectRatio: (1 / 1.2),
         children: [
           item(
-              Titel: "Casio laser Projector XJV2",
-              Price: "185,000",
+              Titel: "Men's wedding Sherwani",
+              Price: "8,000",
               Rating: 3,
               Description:
-                  """4K 3000 Lumens Hybrid Laser LED Lamp Free Projector having 24/7 operation. 
-best for indoor advertisement 
-indoor Brands Advertising
-best for Home Cinemas
-best for Presentations
-best for outlet display 
-
-Warranty 01 year
-No need to replace lamp again n again
-Just buy and enjoy laser Projection
-Quick on/off
-
-Call us
-Smart One Technologies
-Pakistan
-Suite 14, 6th floor, Al Hafeez Shopping Mall, Main Boulevard Gulberg III, Lahore
-O321 4O8 6763""",
+                  """
+Men's full Sherwani set Medium size excellent quality with Kulla and Khussa. . wore only once . . prices are negotiable""",
               Img:
-                  "https://images.olx.com.pk/thumbnails/102895761-400x300.webp",
-              Discount: "1034",
-              author: "SmartOne Technologies",
+                  "https://images.olx.com.pk/thumbnails/199734749-400x300.webp",
+              Discount: "9,034",
+              author: "Hafiz Imran",
               userName: userName,
               userEmail:userEmail),
           item(
               Titel:
-                  "Combo deal 4gb/64gb Tanix Tx6s Android Tv Box With Keyboard/Mouse",
-              Price: "5,499",
+                  "Denim jacket with full furr (stock available)",
+              Price: "2,699",
               Rating: 2,
               Description:
-                  """Most Awaited Octa Core DDR 4 Tv Box With Android 10 Sab Se Behter Or Powerful Box Now Available For Sale , Octa Core with Warranty
-Eid Offer Device + Keyboard/Mouse
-Very Elegant n Strong Device
-Free Movies/Series, (Netflix,Amazon,Zee5,Pak,Asian,English etc)""",
+                  """jackets for mens
+full furr jackets export quality
+A grade premium stuff
+orignal pics attached no editing
+medium
+large
+xL
+stock available
+divery all over pakistan """,
               Img:
-                  "https://images.olx.com.pk/thumbnails/172238453-400x300.webp",
-              Discount: "1404",
-              author: "Mudassir",
+                  "https://images.olx.com.pk/thumbnails/199513237-400x300.webp",
+              Discount: "2,899",
+              author: "Olx user",
               userName: userName,
               userEmail:userEmail),
           item(
-              Titel: "Electrical Goods, Electric Equipment",
-              Price: "400",
+              Titel: "Bin Liaquat Fabrics Wholesaler",
+              Price: "2,400",
               Rating: 5,
               Description:
-                  """Panasonic 1-chip DLP projectors are brighter and better than ever with a compilation of numerous Panasonic proprietary technologies. The wide-aspect PT-D6000US with a brightness of 6500 lumens produces vivid colorful images with the aid of the newly engineered RGB Booster. The Dual-Lamp System makes sure that presentations aren't interrupted even if a lamp suddenly burns out. This is joined by the Auto Cleaning Filter, which makes filter cleaning unnecessary for approximately 10,000 hours, for high reliability. It offers easy and flexible system configuration.""",
+                  """Beautiful #Dori & #Pearls #Mirror Work
+
+Shirt Front Fully Emb 
+Shirt Back Plain
+Masori Trouser 
+Net Gotta & Mirror Work Dupatta""",
               Img:
                   "https://images.olx.com.pk/thumbnails/179644938-400x300.webp",
-              Discount: "160,000",
-              author: "Projector point",
+              Discount: "2,600",
+              author: "Bin Liaquat Fabrics Wholesaler ",
               userName: userName,
               userEmail:userEmail),
           item(
-              Titel: "Electrical Goods, Electric Equipment",
-              Price: "150,000",
+              Titel: "Fancy wedding Dress",
+              Price: "9,000",
               Rating: 3,
-              Description: "Description",
+              Description: """
+Only once used on walima, Fresh and Neat and Clean Dress. Front open back tale. . Stylish design""",
               Img:
-                  "https://3.imimg.com/data3/AB/YM/MY-2785260/all-electrical-goods-500x500.jpg",
-              Discount: "444",
-              author: "Mudassir",
+                  "https://images.olx.com.pk/thumbnails/199731567-400x300.webp",
+              Discount: "10,000",
+              author: "Adnan",
               userName: userName,
               userEmail:userEmail),
         ],

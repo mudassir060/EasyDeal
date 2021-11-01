@@ -76,47 +76,44 @@ class Showfullnews extends StatelessWidget {
       return json.decode(result.body);
     }
 
-    AddToFavo1() {
-      print("Pakistan");
-    }
-
-    AddToFavo2() {
-      print("Zindabad");
-    }
-
     Future<List<dynamic>> AddToCart() async {
       final String apiUrl =
-          "https://news-node-app.herokuapp.com/favouritenews/favouritenewsadd";
+          "https://news-node-app.herokuapp.com/Cart/Cartadd";
       print("=============================================>>>>>>");
       var result = await http.post(Uri.parse(apiUrl), body: {
+        "Titel": titel,
+        "Price": Price,
+        "Rating": Rating,
+        "NoOfItems": 3,
+        "Description": description,
+        "Img": img,
+        "Discount": Discount,
+        "author": author,
         "userName": userName,
         "userEmail": userEmail,
-        "author": author,
-        "title": titel,
-        "description": description,
-        "urlToImage": img,
-        "publishedAt": time,
-        "price": Price,
-        "Discount": Discount
+        "publishedAt": "21/02/2013"
       });
       print(
           "===================Get data form mongodb =============================");
       print(json.decode(result.body)["message"]);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(json.decode(result.body)["message"]),
-          duration: const Duration(seconds: 1),
-        ),
+      Widget okButton = TextButton(
+        child: const Text("OK"),
+        onPressed: () {
+          Navigator.of(context).pop(); // dismiss dialog
+        },
       );
-      print("objectobjectobjectobject");
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: const Text('snack'),
-        duration: const Duration(seconds: 1),
-        action: SnackBarAction(
-          label: 'ACTION',
-          onPressed: () {},
-        ),
-      ));
+      AlertDialog alert = AlertDialog(
+        content: Text(json.decode(result.body)["message"]),
+        actions: [
+          okButton,
+        ],
+      );
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        },
+      );
       // print(json.decode(result.body[0]));
       return json.decode(result.body);
     }

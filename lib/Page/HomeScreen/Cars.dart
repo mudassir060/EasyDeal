@@ -67,7 +67,7 @@ Registered 2008
 Car can be seen in Peshawar University Campus. 
 Peshawar Registered, without sunroof.""",
               Img:
-                  "https://images.olx.com.pk/thumbnails/172238453-400x300.webp",
+                  "https://images.olx.com.pk/thumbnails/176848310-400x300.webp",
               Discount: "5,900,000",
               author: "Muhammad Hanif",
               userName: userName,

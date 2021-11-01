@@ -23,7 +23,8 @@ class _MobileState extends State<Mobile> {
   Widget build(BuildContext context) {
     var vwidth = MediaQuery.of(context).size.width;
     if (widget.UserData != null) {
-      print("=========================jjjjjj==============dg===========>${userEmail}");
+      print(
+          "=========================jjjjjj==============dg===========>${userEmail}");
       userEmail = widget.UserData['email'];
       userName = widget.UserData['Name'];
     }
@@ -39,72 +40,75 @@ class _MobileState extends State<Mobile> {
         childAspectRatio: (1 / 1.2),
         children: [
           item(
-              Titel: "Casio laser Projector XJV2",
-              Price: "185,000",
+              Titel:
+                  "Samsung Stock S21 Ultra / Note 20 Ultra / Note 10 Plus PTA Approved",
+              Price: " 70,000",
               Rating: 3,
               Description:
-                  """4K 3000 Lumens Hybrid Laser LED Lamp Free Projector having 24/7 operation. 
-best for indoor advertisement 
-indoor Brands Advertising
-best for Home Cinemas
-best for Presentations
-best for outlet display 
+                  """01. S21 Ultra 12GB / 128GB Snapdragon 888 5G Phantom Black Single Sim (Non Approved) Rs. 130k
 
-Warranty 01 year
-No need to replace lamp again n again
-Just buy and enjoy laser Projection
-Quick on/off
+02. Note 20 Ultra 12GB / 256GB Orignal Pen Mystic Bronze Dual Sim (PTA Approved) Rs. 125k
 
-Call us
-Smart One Technologies
-Pakistan
-Suite 14, 6th floor, Al Hafeez Shopping Mall, Main Boulevard Gulberg III, Lahore
-O321 4O8 6763""",
+03. Note 20 Ultra 12GB / 512GB Orignal Pen Mystic Black Single Sim (Offcial Approved) Rs. 145k
+
+04. Note 20 Ultra 8GB / 256GB Orignal Pen Mystic Bronze Dual Sim (PTA Approved) Rs. 115k
+""",
               Img:
-                  "https://images.olx.com.pk/thumbnails/102895761-400x300.webp",
-              Discount: "1034",
-              author: "SmartOne Technologies",
+                  "https://images.olx.com.pk/thumbnails/199486118-400x300.webp",
+              Discount: " 70,000",
+              author: "SSTrading",
               userName: userName,
-              userEmail:userEmail),
+              userEmail: userEmail),
           item(
-              Titel:
-                  "Combo deal 4gb/64gb Tanix Tx6s Android Tv Box With Keyboard/Mouse",
-              Price: "5,499",
-              Rating: 2,
+              Titel: "iphone 11 pro non pta",
+              Price: "70,000",
+              Rating: 3,
               Description:
-                  """Most Awaited Octa Core DDR 4 Tv Box With Android 10 Sab Se Behter Or Powerful Box Now Available For Sale , Octa Core with Warranty
-Eid Offer Device + Keyboard/Mouse
-Very Elegant n Strong Device
-Free Movies/Series, (Netflix,Amazon,Zee5,Pak,Asian,English etc)""",
+                  """iphone 11 pro 256gb screen crack touch working 100% fine. face id true tone everything else perfectly fine and sealed 85 battery health (90000)
+
+iphone  11 pro 64gb icloud lock 95 battery health everything else perfectly fine (70000)
+
+both are scratchless and came from USA price almost final hi hai discount ke liye msg na karen shukriya.""",
               Img:
-                  "https://images.olx.com.pk/thumbnails/172238453-400x300.webp",
-              Discount: "1404",
-              author: "Mudassir",
+                  "https://images.olx.com.pk/thumbnails/199730538-400x300.webp",
+              Discount: "80,000",
+              author: "Olx User",
               userName: userName,
-              userEmail:userEmail),
+              userEmail: userEmail),
           item(
-              Titel: "Electrical Goods, Electric Equipment",
-              Price: "400",
+              Titel: "Iphone X(PTA Approved) all okay",
+              Price: "67,000",
               Rating: 5,
-              Description:
-                  """Panasonic 1-chip DLP projectors are brighter and better than ever with a compilation of numerous Panasonic proprietary technologies. The wide-aspect PT-D6000US with a brightness of 6500 lumens produces vivid colorful images with the aid of the newly engineered RGB Booster. The Dual-Lamp System makes sure that presentations aren't interrupted even if a lamp suddenly burns out. This is joined by the Auto Cleaning Filter, which makes filter cleaning unnecessary for approximately 10,000 hours, for high reliability. It offers easy and flexible system configuration.""",
+              Description: """Iphone X PTA approved Face id ok
+cond : 10/10""",
               Img:
                   "https://images.olx.com.pk/thumbnails/179644938-400x300.webp",
-              Discount: "160,000",
+              Discount: "67,000",
               author: "Projector point",
               userName: userName,
-              userEmail:userEmail),
+              userEmail: userEmail),
           item(
-              Titel: "Electrical Goods, Electric Equipment",
-              Price: "150,000",
+              Titel: "Apple Iphone X 64 Approved",
+              Price: "77,000",
               Rating: 3,
-              Description: "Description",
+              Description: """Available
+
+Apple Iphone X
+
+Colour : Black/White
+
+Price : 
+
+64gb 57000
+
+256gb 60000
+""",
               Img:
-                  "https://3.imimg.com/data3/AB/YM/MY-2785260/all-electrical-goods-500x500.jpg",
-              Discount: "444",
-              author: "Mudassir",
+                  "https://images.olx.com.pk/thumbnails/126000430-400x300.webp",
+              Discount: "77,600",
+              author: "Exit - Mobile Home",
               userName: userName,
-              userEmail:userEmail),
+              userEmail: userEmail),
         ],
       )),
     );

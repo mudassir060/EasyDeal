@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, file_names, prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, import_of_legacy_library_into_null_safe
 
 import 'package:easydeals/Api/login.dart';
+import 'package:easydeals/Page/CartScreen.dart';
 import 'package:easydeals/Page/Favourit.dart';
 import 'package:easydeals/Page/HomeScreen/Cars.dart';
 import 'package:easydeals/Page/HomeScreen/Clothes.dart';
@@ -80,6 +81,9 @@ class _HomePageState extends State<HomePage> {
       widget.UserData == null
           ? NotSigin()
           : Favourit(UserData: widget.UserData),
+      widget.UserData == null
+          ? NotSigin()
+          : CartScreen(UserData: widget.UserData),
       const Logout()
     ];
 
@@ -116,20 +120,18 @@ class _HomePageState extends State<HomePage> {
                             child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                              Container(
-                                height: 70,
-                                width: 150,
-                                decoration: BoxDecoration(
-                                  image: const DecorationImage(
-                                    image: AssetImage('images/Logo1.png'),
-                                    fit: BoxFit.fill,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10),
-                                  shape: BoxShape.rectangle,
+                            Container(
+                              height: 70,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                image: const DecorationImage(
+                                  image: AssetImage('images/Logo1.png'),
+                                  fit: BoxFit.fill,
                                 ),
+                                borderRadius: BorderRadius.circular(10),
+                                shape: BoxShape.rectangle,
                               ),
-                           
-
+                            ),
                             widget.UserData == null
                                 ? TextButton(
                                     onPressed: () {
@@ -196,7 +198,7 @@ class _HomePageState extends State<HomePage> {
                                       const Center(child: Text("Favourit"));
                                 });
                               },
-                              leading: const Icon(Icons.warning_amber,
+                              leading: const Icon(Icons.favorite,
                                   color: Colors.white),
                               title: const Text(
                                 'Favourit',
@@ -207,6 +209,22 @@ class _HomePageState extends State<HomePage> {
                               onTap: () {
                                 setState(() {
                                   _selectedIndex = 3;
+                                  value = 0;
+                                  appBarTitleText =
+                                      const Center(child: Text("Cart"));
+                                });
+                              },
+                              leading: const Icon(Icons.card_travel,
+                                  color: Colors.white),
+                              title: const Text(
+                                'Cart',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            ListTile(
+                              onTap: () {
+                                setState(() {
+                                  _selectedIndex = 4;
                                   value = 0;
                                   appBarTitleText =
                                       const Center(child: Text("Logout"));
