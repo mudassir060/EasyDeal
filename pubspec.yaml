@@ -38,6 +38,8 @@ dependencies:
   intl: ^0.17.0
   flutter_alert: ^0.4.0
   image_picker: ^0.8.4+4
+  # Flutter Toast for popup errors
+  fluttertoast:
 
 dev_dependencies:
   flutter_test:

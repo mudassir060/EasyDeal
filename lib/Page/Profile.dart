@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, file_names
 
+import 'package:easydeals/widget/UserDataField.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -7,7 +8,7 @@ class ProfilePage extends StatefulWidget {
 
   const ProfilePage({
     Key? key,
- required this.UserData,
+    required this.UserData,
   }) : super(key: key);
 
   @override
@@ -28,98 +29,59 @@ class _ProfilePageState extends State<ProfilePage> {
     double maxWidth = 600;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Center(
-        child: Container(
-          constraints: BoxConstraints(maxWidth: maxWidth),
-          child: Scaffold(
-            // appBar: AppBar(
-            //   centerTitle: true,
-            //   leading: IconButton(
-            //       onPressed: () {
-            //         Navigator.of(context).pop();
-            //       },
-            //       icon: const Icon(
-            //         Icons.arrow_back,
-            //       )),
-            //   title: Text('Profile'),
-            // ),
-            body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                      child: Container(
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage("${widget.UserData["UserProfile"]}"),
-                              fit: BoxFit.cover),
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ),
-                    FittedBox(
-                      child: Center(
-                        child: Row(
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                // // // // // // // // // // // // // // // // // // // Name // // // // // // // // // // // // // // // // // //
-                                Data(
-                                    icon: Icons.person,
-                                    titel: "Name",
-                                    subtitel: widget.UserData['Name']),
-                                Line(),
-                                // // // // // // // // // // // // // // // // // // // Email // // // // // // // // // // // // // // // // // //
-                                Data(
-                                    icon: Icons.email,
-                                    titel: "Email",
-                                    subtitel: widget.UserData['email']),
-                                Line(),
-                                // // // // // // // // // // // // // // // // // // // Phone Number // // // // // // // // // // // // // // // // // //
-                                Data(
-                                    icon: Icons.phone,
-                                    titel: "Phone Number",
-                                    subtitel: widget.UserData['phoneNo']),
-                                Line(),
-                                // // // // // // // // // // // // // // // // // // // About // // // // // // // // // // // // // // // // // //
-                                const Data(
-                                    icon: Icons.info,
-                                    titel: "About",
-                                    subtitel: "Bio"),
-                                Line(),
-                                // // // // // // // // // // // // // // // // // // //  // // // // // // // // // // // // // // // // // //
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 18.0),
-                      child: Align(
-                        alignment: FractionalOffset.bottomCenter,
-                        child: Text(
-                          'Logged In with Email',
-                          style: TextStyle(
-                              color: Colors.redAccent,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ],
+      home: Scaffold(
+        body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+              Center(
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(photoUrl),
+                        fit: BoxFit.cover),
+                    shape: BoxShape.circle,
+                  ),
                 ),
               ),
-            ),
-          ),
+              UserDataField(
+                icon: Icons.account_circle_outlined,
+                titleText: "User Name",
+                text: widget.UserData['Name'],
+              ),
+              UserDataField(
+                icon: Icons.email_outlined,
+                titleText: "Email",
+                text: widget.UserData['email'],
+              ),
+              UserDataField(
+                icon: Icons.phone,
+                titleText: "Phone No",
+                text: widget.UserData['phoneNo'],
+              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     GradientLabelButton(
+              //       onPressed: () {
+              //         logOut();
+              //       },
+              //       icon: Icons.logout_rounded,
+              //       label: "Logout",
+              //       gradient: LinearGradient(
+              //         colors: <Color>[Colors.grey, Colors.grey],
+              //       ),
+              //     ),
+              //   ],
+              // ),
+          ],
         ),
+            )),
       ),
     );
   }

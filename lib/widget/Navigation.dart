@@ -1,8 +1,11 @@
 // ignore_for_file: avoid_print, file_names, prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, import_of_legacy_library_into_null_safe
 
+import 'dart:convert';
+
 import 'package:easydeals/Api/login.dart';
 import 'package:easydeals/Page/CartScreen.dart';
 import 'package:easydeals/Page/Favourit.dart';
+import 'package:easydeals/Page/Home.dart';
 import 'package:easydeals/Page/HomeScreen/Cars.dart';
 import 'package:easydeals/Page/HomeScreen/Clothes.dart';
 import 'package:easydeals/Page/HomeScreen/Electronics.dart';
@@ -11,8 +14,10 @@ import 'package:easydeals/Page/Profile.dart';
 import 'package:easydeals/Page/Search.dart';
 import 'package:easydeals/widget/Logout.dart';
 import 'package:easydeals/widget/NotSigin.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_alert/flutter_alert.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   // const HomePage({Key? key}) : super(key: key);
@@ -29,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   double value = 0;
   var Navigatio = 0;
   int _selectedIndex = 0;
-  var appBarTitleText = const Center(child: Text("PAK News"));
+  var appBarTitleText = const Center(child: Text("Easy Deal"));
   @override
   Widget build(BuildContext context) {
     _openPopup(context) {
@@ -84,8 +89,24 @@ class _HomePageState extends State<HomePage> {
       widget.UserData == null
           ? NotSigin()
           : CartScreen(UserData: widget.UserData),
-      const Logout()
+      widget.UserData == null ? Login() : Logout(),
     ];
+    String apiUrl = "";
+
+    widget.UserData != null
+        ? apiUrl =
+            // http://localhost:5000/Cart/Cartget/mudassirmukhtar4@gmail.com
+            "https://news-node-app.herokuapp.com/Cart/Cartget/${widget.UserData['email']}"
+        : null;
+    Future<String> fetchBill() async {
+      print("=====================fetchUsers===========================");
+      var result = await http.post(
+        Uri.parse(apiUrl),
+      );
+      print(
+          "======================fetchcartData======================= ===${json.decode(result.body)["Index"]}");
+      return json.decode(result.body)["Index"].toString();
+    }
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -214,7 +235,7 @@ class _HomePageState extends State<HomePage> {
                                       const Center(child: Text("Cart"));
                                 });
                               },
-                              leading: const Icon(Icons.card_travel,
+                              leading: const Icon(Icons.shopping_cart,
                                   color: Colors.white),
                               title: const Text(
                                 'Cart',
@@ -230,12 +251,17 @@ class _HomePageState extends State<HomePage> {
                                       const Center(child: Text("Logout"));
                                 });
                               },
-                              leading: const Icon(Icons.settings,
-                                  color: Colors.white),
-                              title: const Text(
-                                'Logout',
-                                style: TextStyle(color: Colors.white),
-                              ),
+                              leading:
+                                  const Icon(Icons.logout, color: Colors.white),
+                              title: widget.UserData == null
+                                  ? const Text(
+                                      'Login',
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  : const Text(
+                                      'Logout',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
                             ),
                           ],
                         )),
@@ -252,7 +278,7 @@ class _HomePageState extends State<HomePage> {
                           transform: Matrix4.identity()
                             ..setEntry(3, 2, 0.001)
                             ..setEntry(0, 3, 200 * val),
-                          // ..rotateY((pi / 6) * val),
+                          // // ..rotateY((pi / 6) * val),
                           child: DefaultTabController(
                             length: 4,
                             child: Scaffold(
@@ -260,22 +286,80 @@ class _HomePageState extends State<HomePage> {
                                   title: appBarTitleText,
                                   actions: <Widget>[
                                     Padding(
-                                        padding: EdgeInsets.only(right: 20.0),
-                                        child: GestureDetector(
-                                          onTap: () {
+                                        padding: EdgeInsets.only(right: 0.0),
+                                        child: IconButton(
+                                          onPressed: () {
                                             _openPopup(context);
                                           },
-                                          child: Icon(
+                                          icon: Icon(
                                             Icons.search,
                                             size: 26.0,
                                           ),
                                         )),
-                                    Padding(
-                                        padding: EdgeInsets.only(right: 20.0),
-                                        child: GestureDetector(
-                                          onTap: () {},
-                                          child: Icon(Icons.more_vert),
-                                        )),
+                                    FutureBuilder(
+                                        future: fetchBill(),
+                                        builder: (context, snapshot) {
+                                          if (snapshot.hasData) {
+                                            return Padding(
+                                              padding:
+                                                  const EdgeInsets.only(top: 7),
+                                              child: Stack(children: [
+                                                IconButton(
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              CartScreen(
+                                                                  UserData: widget
+                                                                      .UserData),
+                                                        ));
+                                                  },
+                                                  icon: Icon(
+                                                    Icons.shopping_cart,
+                                                    size: 26,
+                                                  ),
+                                                ),
+                                                int.parse(snapshot.data
+                                                            .toString()) >=
+                                                        1
+                                                    ? Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                left: 25,
+                                                                top: 0),
+                                                        child: Container(
+                                                          height: 13,
+                                                          width: 13,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          child: Center(
+                                                            child: Text(
+                                                                snapshot.data
+                                                                    .toString(),
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        10,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold)),
+                                                          ),
+                                                        ),
+                                                      )
+                                                    : Container()
+                                              ]),
+                                            );
+                                          }
+                                          return Container(
+                                            width: 0.0,
+                                            height: 0.0,
+                                          );
+                                        }),
                                   ],
                                   leading: IconButton(
                                     icon: const Icon(Icons.menu),
@@ -302,42 +386,38 @@ class _HomePageState extends State<HomePage> {
                                               Tab(
                                                   child: Text(
                                                 'Electronics',
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                ),
                                               )),
                                               Tab(
                                                 child: Text(
                                                   'Cars',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
                                                 ),
                                               ),
                                               Tab(
                                                 child: Text(
                                                   'Mobile',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
                                                 ),
                                               ),
                                               Tab(
                                                 child: Text(
                                                   'Clothes',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
                                                 ),
                                               ),
                                             ])
                                       : null),
                               body: _selectedIndex == 0
                                   ? TabBarView(children: [
-                                      Electronics(UserData: widget.UserData),
-                                      Cars(UserData: widget.UserData),
-                                      Mobile(UserData: widget.UserData),
-                                      Clothes(UserData: widget.UserData),
+                                      Home(
+                                          UserData: widget.UserData,
+                                          Categories: "Electronics"),
+                                      Home(
+                                          UserData: widget.UserData,
+                                          Categories: "Cars"),
+                                      Home(
+                                          UserData: widget.UserData,
+                                          Categories: "Mobile"),
+                                      Home(
+                                          UserData: widget.UserData,
+                                          Categories: "Clothes"),
                                     ])
                                   : Page[_selectedIndex],
                             ),

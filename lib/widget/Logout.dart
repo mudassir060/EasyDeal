@@ -22,6 +22,6 @@ class _LogoutState extends State<Logout> {
   @override
   Widget build(BuildContext context) {
     Logout();
-    return const Text("Logout");
+    return const Center(child: Text("Logout..."));
   }
 }

@@ -41,22 +41,28 @@ class _FavouritState extends State<Favourit> {
           future: fetchUsers(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
-              return GridView.count(
-                crossAxisCount: 2,
-                        childAspectRatio: (1 / 1.2),
-                children: List.generate(snapshot.data.length, (index) {
-                  return item(
-                      Titel: snapshot.data[index]['Titel'],
-                      Price: snapshot.data[index]['Price'],
-                      Rating: int.parse(snapshot.data[index]['Rating']),
-                      Description: snapshot.data[index]['Description'],
-                      Img: snapshot.data[index]['Img'],
-                      Discount: snapshot.data[index]['Discount'],
-                      author: snapshot.data[index]['author'],
-                      userName: snapshot.data[index]['userEmail'],
-                      userEmail: snapshot.data[index]['Titel']);
-                }),
-              );
+              return snapshot.data.length != 0
+                  ? GridView.count(
+                      crossAxisCount: 2,
+                      childAspectRatio: (1 / 1.2),
+                      children: List.generate(snapshot.data.length, (index) {
+                        return item(
+                            Titel: snapshot.data[index]['Titel'],
+                            Price: snapshot.data[index]['Price'],
+                            Rating: int.parse(snapshot.data[index]['Rating']),
+                            Description: snapshot.data[index]['Description'],
+                            Img: snapshot.data[index]['Img'],
+                            Discount: snapshot.data[index]['Discount'],
+                            author: snapshot.data[index]['author'],
+                            publishedAt: snapshot.data[index]['publishedAt'],
+                            UserData: widget.UserData,
+                            id: snapshot.data[index]['_id']);
+                      }),
+                    )
+                  : const Center(
+                      child: Text(
+                      "No Item Add in Favourit",
+                    ));
             } else {
               return const Center(child: CircularProgressIndicator());
             }
